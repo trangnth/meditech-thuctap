@@ -57,6 +57,13 @@ GRANT ALL PRIVILEGES ON nagios.* TO 'ndoutils'@'%' WITH GRANT OPTION ;
 \q
 ```
 
+Lưu ý: Nếu mariadb được cài ở trên máy cài check mk thì ta cần chạy thêm câu lệnh sau
+
+```
+GRANT USAGE ON *.* TO 'ndoutils'@'localhost' IDENTIFIED BY 'ndoutils_password' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+GRANT ALL PRIVILEGES ON nagios.* TO 'ndoutils'@'localhost' WITH GRANT OPTION ;
+```
+
 
 ## 3. Cấu hình trên node check mk
 
@@ -75,6 +82,8 @@ cd /tmp/ndoutils-2.1.3/
 ./configure --prefix=/omd/sites/manager/usr/local/nagios/ --enable-mysql --disable-pgsql --with-ndo2db-user=manager -with-ndo2db-group=manager --with-mysql-lib=/usr/lib/mysql
 make all
 ```
+
+Lưu ý: Thay `manager` bằng site của bạn
 
 `make install`
 
@@ -116,6 +125,8 @@ db_pass=ndoutils_password
 ```
 
 `exit`
+
+`cd ..`
 
 `make install-init`
 
