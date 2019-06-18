@@ -6,7 +6,7 @@ Tham khảo cách cài đặt check_mk agent [tại đây](https://github.com/th
 
 - B2. Clone plugin về máy vừa cài agent
 
-`cd /usr/lib/check_mk_agent/plugins/ && wget https://raw.githubusercontent.com/HeinleinSupport/check_mk/master/ceph/agents/plugins/ceph`
+`cd /usr/lib/check_mk_agent/plugins/ && wget https://raw.githubusercontent.com/thaonguyenvan/meditech-thuctap/master/ThaoNV/ghichep-checkmk/scripts/ceph`
 
 Phân quyền
 
@@ -63,6 +63,8 @@ OMD[manager]:~$ check_mk -P list ceph
 /omd/sites/manager/local/share/check_mk/pnp-templates/check_mk-cephstatus.php
 ```
 
+Chỉnh lại nội dung file `/omd/sites/manager/local/share/check_mk/checks/cephosd` giống với file ở link sau https://raw.githubusercontent.com/thaonguyenvan/meditech-thuctap/master/ThaoNV/ghichep-checkmk/scripts/cephosd
+
 - B5: Discover services trên WATO.
 
-<img src="https://i.imgur.com/t6gELR9.png">
+<img src="https://i.imgur.com/9X6ntrp.png">
